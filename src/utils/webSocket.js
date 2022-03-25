@@ -23,7 +23,6 @@ const WebSocketProvider = ({ children }) => {
   });
 
   socket.onAny((eventName, ...args) => {
-    console.log(eventName, args);
     dispatch(updatePrice(eventName, args));
   });
   socket.on('disconnect', function () {
