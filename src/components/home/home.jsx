@@ -15,7 +15,6 @@ const Home = (props) => {
         for (const key of Object.keys(props.assets)) {
             const { assetCode } = assets[key]
             const element = window.document.querySelector(`.asset-${assetCode}`)
-            console.log(element)
             CommonUtils.toggleSubscription(key, element)
         }
     }

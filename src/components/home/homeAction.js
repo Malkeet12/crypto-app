@@ -33,7 +33,10 @@ export function fetchAssets({
       response
         .json()
         .then((json) => {
+          //pre fetching next page data for better UX(avoid loading state)
+          if (json.data.page === 1) dispatch(fetchAssets({ page: 2 }));
           dispatch(fetchAssetsSuccess(json.data));
+
           return json.data;
         })
         .catch((error) => dispatch(fetchAssetsFailure(error)))
